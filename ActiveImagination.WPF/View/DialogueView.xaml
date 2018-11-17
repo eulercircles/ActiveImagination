@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="ActiveImagination.View.DialogueView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+						 xmlns:vm="clr-namespace:ActiveImagination.ViewModel;assembly=ActiveImagination.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+						 Loaded="UserControl_Loaded">
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<vm:DialogueViewModel x:Key="viewModel"/>
+		</ResourceDictionary>
+	</UserControl.Resources>
+	<Grid Background="DimGray" DataContext="{StaticResource viewModel}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="4"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="4"/>
+		</Grid.RowDefinitions>
+		<ScrollViewer Grid.Row="1"
+									VerticalScrollBarVisibility="Auto"
+									HorizontalScrollBarVisibility="Disabled"
+									CanContentScroll="False" MaxWidth="1024">
+			<ItemsControl x:Name="DialogueSections" Background="Transparent" ItemsSource="{Binding Sections}">
+				<ItemsControl.InputBindings>
+					<KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding SaveCommand}"/>
+				</ItemsControl.InputBindings>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Grid Margin="6,2,6,2" Background="{Binding Background.Value, Mode=OneWay}" Loaded="Item_Loaded">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="6"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="6"/>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="6"/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="6"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="6"/>
+							</Grid.ColumnDefinitions>
+							
+							<TextBox x:Name="figureTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" TextAlignment="Center"
+											 Text="{Binding FigureName.Value, Mode=TwoWay}" FontSize="13pt" FontWeight="Bold" AcceptsReturn="False" AcceptsTab="False" KeyDown="FigureTextBox_KeyDown"
+											 FontFamily="Georgia" Background="Transparent" BorderThickness="0" IsEnabled="{Binding IsEditingName.Value, Mode=OneWay}">
+								<TextBox.Foreground>
+									<SolidColorBrush Color="Black" Opacity="0.618"/>
+								</TextBox.Foreground>
+							</TextBox>
+
+							<TextBox x:Name="bodyTextBox" Grid.Row="3" Grid.Column="1"
+											 TextWrapping="Wrap" Margin="8,0,8,8" Background="Transparent"
+											 BorderThickness="0" TextAlignment="Justify"
+											 AcceptsReturn="False" AcceptsTab="False"
+											 FontFamily="Viner Hand ITC" FontSize="13pt"
+											 Text="{Binding BodyText.Value, Mode=TwoWay}"
+											 IsEnabled="{Binding IsBodyEditable.Value, Mode=OneWay}">
+								<TextBox.Foreground>
+									<SolidColorBrush Color="Black" Opacity="0.95"/>
+								</TextBox.Foreground>
+								<TextBox.InputBindings>
+									<KeyBinding Key="Return"
+															Command="{Binding AddSectionCommand}"
+															CommandParameter="{StaticResource Method_Rotate}"/>
+									<KeyBinding Key="Return" Modifiers="Shift"
+															Command="{Binding AddSectionCommand}"
+															CommandParameter="{StaticResource Method_Create}"/>
+									<KeyBinding Key="Tab"
+															Command="{Binding ChangeFigureCommand}"
+															CommandParameter="{StaticResource Method_Rotate}" />
+									<KeyBinding Key="Tab" Modifiers="Shift"
+															Command="{Binding ChangeFigureCommand}"
+															CommandParameter="{StaticResource Method_Create}"/>
+								</TextBox.InputBindings>
+							</TextBox>
+							
+						</Grid>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+	</Grid>
+</UserControl>

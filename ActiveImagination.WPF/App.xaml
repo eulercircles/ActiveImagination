@@ -1,0 +1,12 @@
+﻿<Application x:Class="ActiveImagination.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ActiveImagination"
+						 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+						 xmlns:m="clr-namespace:ActiveImagination.Model;assembly=ActiveImagination.Model"
+             StartupUri="MainWindow.xaml">
+	<Application.Resources>
+		<m:SetFigureMethod x:Key="Method_Rotate">Rotate</m:SetFigureMethod>
+		<m:SetFigureMethod x:Key="Method_Create">Create</m:SetFigureMethod>
+	</Application.Resources>
+</Application>
