@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Collections.Generic;
-
 using System.Collections.ObjectModel;
 
 using FlintLib.MVVM;
+using FlintLib.Commands;
 
 using ActiveImagination.Model;
-
-using System.Windows.Media;
 
 using static FlintLib.Mathematics.Functions;
 using static FlintLib.Presentation.ColorUtilities;

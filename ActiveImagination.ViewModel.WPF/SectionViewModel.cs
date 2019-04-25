@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows.Input;
-
-using FlintLib.MVVM;
-
-using ActiveImagination.Model;
 using System.Windows.Media;
 using System.ComponentModel;
+
+using FlintLib.MVVM;
+using FlintLib.Commands;
+
+using ActiveImagination.Model;
 
 namespace ActiveImagination.ViewModel
 {

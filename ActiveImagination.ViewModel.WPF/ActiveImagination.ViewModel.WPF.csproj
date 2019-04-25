@@ -35,6 +35,9 @@
       <HintPath>..\..\..\Assemblies\FlintLib\MVVM\FLib.MVVM.WPF.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FlintLib.Commands">
+      <HintPath>..\..\..\Assemblies\FlintLib\Commands\FlintLib.Commands.dll</HintPath>
+    </Reference>
     <Reference Include="FlintLib.Common">
       <HintPath>..\..\..\Assemblies\FlintLib\Common\FlintLib.Common.dll</HintPath>
       <Private>True</Private>
