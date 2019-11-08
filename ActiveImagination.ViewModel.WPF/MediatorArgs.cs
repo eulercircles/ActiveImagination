@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using FlintLib.MVVM;
+using FLib.MVVM;
 
 namespace ActiveImagination.ViewModel
 {

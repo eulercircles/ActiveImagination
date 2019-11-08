@@ -4,13 +4,12 @@ using System.Windows.Media;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-using FlintLib.MVVM;
-using FlintLib.Commands;
+using FLib.Commands;
 
 using ActiveImagination.Model;
 
-using static FlintLib.Mathematics.Functions;
-using static FlintLib.Presentation.ColorUtilities;
+using static FLib.Mathematics.Functions;
+using static FLib.Presentation.ColorUtilities;
 
 namespace ActiveImagination.ViewModel
 {
@@ -87,16 +86,25 @@ namespace ActiveImagination.ViewModel
 			}
 		}
 
-		internal void CommitNameEdit(Section section, string newName)
+		internal void CommitNameEdit(SectionViewModel section, string newName)
 		{
-			if (_figureColors.ContainsKey(section.Figure))
+			if (_figureColors.ContainsKey(newName))
 			{
-				var color = _figureColors[section.Figure];
-				_figureColors.Remove(section.Figure);
-				_figureColors.Add(newName, color);
+				var color = _figureColors[newName];
+				section.Background.Value = color;
 			}
+			else
+			{
+				if (_figureColors.ContainsKey(section.Model.Figure))
+				{
+					var color = _figureColors[section.Model.Figure];
+					_figureColors.Remove(section.Model.Figure);
+					_figureColors.Add(newName, color);
+				}
+			}
+						
 
-			_dialogue.CommitNameEdit(section, newName);
+			_dialogue.CommitNameEdit(section.Model, newName);
 		}
 
 		internal void CommitTextEdit(Section section, string text)

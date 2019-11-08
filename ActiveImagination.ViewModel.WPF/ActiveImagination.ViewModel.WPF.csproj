@@ -31,29 +31,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FLib.Commands">
+      <HintPath>..\..\..\Assemblies\FLib.Framework\Release\FLib.Commands\FLib.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="FLib.Common">
+      <HintPath>..\..\..\Assemblies\FLib.Framework\Release\FLib.Common\FLib.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="FLib.Mathematics">
+      <HintPath>..\..\..\Assemblies\FLib.Framework\Release\FLib.Mathematics\FLib.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="FLib.MVVM">
+      <HintPath>..\..\..\Assemblies\FLib.Framework\Release\FLib.MVVM\FLib.MVVM.dll</HintPath>
+    </Reference>
     <Reference Include="FLib.MVVM.WPF">
-      <HintPath>..\..\..\Assemblies\FlintLib\MVVM\FLib.MVVM.WPF.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\Assemblies\FLib.Framework\Release\FLib.MVVM.WPF\FLib.MVVM.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="FlintLib.Commands">
-      <HintPath>..\..\..\Assemblies\FlintLib\Commands\FlintLib.Commands.dll</HintPath>
-    </Reference>
-    <Reference Include="FlintLib.Common">
-      <HintPath>..\..\..\Assemblies\FlintLib\Common\FlintLib.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FlintLib.Mathematics">
-      <HintPath>..\..\..\Assemblies\FlintLib\Mathematics\FlintLib.Mathematics.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FlintLib.MVVM">
-      <HintPath>..\..\..\Assemblies\FlintLib\MVVM\FlintLib.MVVM.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FlintLib.Presentation">
-      <HintPath>..\..\..\Assemblies\FlintLib\Presentation\FlintLib.Presentation.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="FLib.Presentation">
+      <HintPath>..\..\..\Assemblies\FLib.Framework\Release\FLib.Presentation\FLib.Presentation.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

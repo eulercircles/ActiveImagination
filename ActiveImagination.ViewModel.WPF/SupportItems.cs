@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-using static FlintLib.Common.EnumUtilities;
+using static FLib.Common.EnumUtilities;
 
 using ActiveImagination.Model;
 
